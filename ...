@@ -1,0 +1,1263 @@
+```html
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Giallo — Ropa deportiva & sublimados</title>
+  <meta name="description" content="Giallo Indumentaria: ropa deportiva, sublimados y producción mayorista para equipos, clubes y emprendimientos.">
+
+  <style>
+    @property --beam-angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    :root {
+      --bg: #080a0f;
+      --card: #11151d;
+      --text: #f2f4f8;
+      --muted: #a4abb9;
+      --line: rgba(255,255,255,.14);
+      --blue: #6f8cff;
+      --red: #eb5969;
+      --cyan: #06b6d4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 70% 0%, rgba(70,100,255,.22), transparent 34rem),
+        radial-gradient(circle at 90% 70%, rgba(235,89,105,.12), transparent 30rem),
+        var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .18;
+      background:
+        conic-gradient(
+          from 190deg at 50% -10%,
+          transparent 0deg,
+          rgba(111,140,255,.24) 8deg,
+          transparent 18deg,
+          rgba(6,182,212,.14) 28deg,
+          transparent 38deg,
+          rgba(235,89,105,.15) 49deg,
+          transparent 62deg
+        );
+      filter: blur(25px);
+      animation: rays 20s ease-in-out infinite alternate;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: Arial Black, Arial, sans-serif;
+      font-weight: 900;
+      line-height: .84;
+      letter-spacing: -.07em;
+      text-transform: uppercase;
+    }
+
+    .wrap {
+      width: min(1200px, calc(100% - 56px));
+      margin: auto;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      height: 94px;
+      padding: 24px 28px;
+      background: linear-gradient(
+        180deg,
+        rgba(8,10,15,.95),
+        rgba(8,10,15,.65),
+        transparent
+      );
+      backdrop-filter: blur(14px);
+    }
+
+    .logo {
+      font: 900 38px/.8 Arial Black, Arial, sans-serif;
+      letter-spacing: -.1em;
+    }
+
+    .est {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font: 10px monospace;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .mini-giallo {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      border: 2px solid transparent;
+      border-radius: 50%;
+      background:
+        linear-gradient(#0b0f18,#0b0f18) padding-box,
+        conic-gradient(
+          from var(--beam-angle),
+          transparent,
+          var(--blue),
+          var(--cyan),
+          var(--red),
+          transparent
+        ) border-box;
+      box-shadow: 0 0 25px rgba(111,140,255,.45);
+      animation: border-spin 2.5s linear infinite;
+      font: 900 24px Arial Black, Arial, sans-serif;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 900px;
+      padding-top: 180px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      width: 58%;
+    }
+
+    .hero-brand {
+      margin-left: -8px;
+      color: var(--text);
+      font: 900 clamp(70px,13vw,190px)/.72 Arial Black, Arial, sans-serif;
+      letter-spacing: -.13em;
+      text-shadow: 0 0 45px rgba(111,140,255,.36);
+      animation: appear 1s ease both;
+    }
+
+    .hero-brand small {
+      display: block;
+      margin: 26px 0 20px 10px;
+      color: var(--blue);
+      font: 700 11px monospace;
+      letter-spacing: .42em;
+    }
+
+    .eyebrow {
+      margin: 34px 0 24px;
+      color: var(--muted);
+      font: 11px monospace;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .live {
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .live i {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      margin-right: 5px;
+      border-radius: 50%;
+      background: var(--red);
+      animation: blink 1.5s infinite;
+    }
+
+    .hero h1 {
+      max-width: 850px;
+      font-size: clamp(70px, 12vw, 170px);
+      text-shadow: 0 0 30px rgba(111,140,255,.18);
+    }
+
+    .hero p {
+      max-width: 390px;
+      margin: 32px 0 26px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 38px;
+      color: #8992a5;
+      font: 10px monospace;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .hero-stats b {
+      margin-right: 6px;
+      color: var(--red);
+      font-size: 16px;
+    }
+
+    .hero-image {
+      position: absolute;
+      right: -4%;
+      bottom: 55px;
+      width: 60%;
+      height: 440px;
+      margin: 0;
+      overflow: hidden;
+      transform: rotate(-2deg);
+      mask-image: linear-gradient(to bottom, #000 0 87%, transparent);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: grayscale(.2) contrast(1.08);
+      mix-blend-mode: screen;
+      transition: .7s;
+    }
+
+    .hero-image:hover img {
+      filter: grayscale(0) contrast(1.08);
+      transform: scale(1.05);
+    }
+
+    .under {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 22px;
+      overflow: hidden;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      background:
+        linear-gradient(#0d1119,#0d1119) padding-box,
+        conic-gradient(
+          from var(--beam-angle),
+          transparent,
+          var(--blue) 40%,
+          var(--cyan) 50%,
+          transparent 62%
+        ) border-box;
+      box-shadow: 0 0 22px rgba(111,140,255,.22);
+      animation: border-spin 2.5s linear infinite;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-align: center;
+      text-transform: uppercase;
+      transition: .3s;
+    }
+
+    .under::after {
+      content: "↗";
+      font-size: 16px;
+    }
+
+    .under:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 30px rgba(111,140,255,.55);
+    }
+
+    .marquee {
+      overflow: hidden;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
+      background: linear-gradient(
+        90deg,
+        rgba(111,140,255,.08),
+        rgba(235,89,105,.12),
+        rgba(111,140,255,.08)
+      );
+      font-size: clamp(24px,3vw,42px);
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .marquee span {
+      display: inline-block;
+      color: var(--blue);
+      animation: slide 22s linear infinite;
+    }
+
+    section {
+      padding: 105px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 35px;
+      margin-bottom: 35px;
+    }
+
+    .section-head h2 {
+      max-width: 800px;
+      font-size: clamp(55px,8vw,120px);
+      text-shadow: 0 0 20px rgba(111,140,255,.16);
+    }
+
+    .section-head h2::after {
+      content: "✦";
+      display: inline-block;
+      margin-left: 16px;
+      color: var(--red);
+      font: 34px Arial;
+    }
+
+    .section-head p {
+      max-width: 350px;
+      margin: 0;
+      color: var(--muted);
+      font: 14px/1.55 monospace;
+    }
+
+    .works {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+
+    .work {
+      position: relative;
+      grid-column: span 6;
+      margin: 0;
+      overflow: hidden;
+      border-radius: 20px;
+      background: var(--card);
+      box-shadow: 0 20px 50px rgba(0,0,0,.3);
+    }
+
+    .work:nth-child(2),
+    .work:nth-child(3) {
+      grid-column: span 3;
+      margin-top: 65px;
+    }
+
+    .work:nth-child(4) {
+      grid-column: span 5;
+      margin-top: 25px;
+    }
+
+    .work img {
+      display: block;
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+      filter: grayscale(.3) saturate(1.12);
+      transition: .7s;
+    }
+
+    .work:nth-child(2) img,
+    .work:nth-child(3) img {
+      height: 225px;
+    }
+
+    .work:hover img {
+      filter: grayscale(0) saturate(1.3);
+      transform: scale(1.06);
+    }
+
+    .work::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(111,140,255,.4),
+          transparent 35%,
+          transparent 60%,
+          rgba(235,89,105,.38)
+        );
+      mix-blend-mode: screen;
+    }
+
+    .badge-tech {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 2;
+      padding: 7px 9px;
+      background: var(--text);
+      color: var(--bg);
+      font: 10px monospace;
+    }
+
+    .work figcaption {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 14px 10px;
+      color: var(--muted);
+      font: 11px monospace;
+      text-transform: uppercase;
+    }
+
+    .stack-showcase {
+      background: radial-gradient(
+        ellipse at 75% 50%,
+        rgba(111,140,255,.14),
+        transparent 44%
+      );
+    }
+
+    .stack-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .stack-copy h2 {
+      margin: 22px 0;
+      font-size: clamp(62px,8vw,124px);
+    }
+
+    .stack-copy p {
+      max-width: 390px;
+      margin-bottom: 30px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .stack-copy p::after {
+      content: "← Deslizá para ver más →";
+      display: block;
+      margin-top: 14px;
+      color: var(--blue);
+      font: 11px monospace;
+    }
+
+    .card-stack {
+      display: flex;
+      width: calc(100% + 16px);
+      height: 470px;
+      gap: 14px;
+      margin-left: -8px;
+      padding: 18px 8px 28px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      overscroll-behavior-x: contain;
+      touch-action: pan-x;
+    }
+
+    .card-stack::-webkit-scrollbar {
+      display: none;
+    }
+
+    .stack-card {
+      position: relative;
+      flex: 0 0 min(86%,390px);
+      height: 470px;
+      margin: 0;
+      overflow: hidden;
+      scroll-snap-align: start;
+      border-radius: 24px;
+      background: var(--card);
+      box-shadow: 0 25px 55px rgba(0,0,0,.38);
+      transition: transform .4s ease;
+    }
+
+    .stack-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .stack-card img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      object-fit: cover;
+      filter: saturate(1.08);
+    }
+
+    .stack-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(
+        145deg,
+        rgba(111,140,255,.28),
+        transparent 42%,
+        rgba(235,89,105,.28)
+      );
+      mix-blend-mode: screen;
+    }
+
+    .stack-card figcaption {
+      position: absolute;
+      bottom: 18px;
+      left: 18px;
+      z-index: 2;
+      color: white;
+      font: 11px monospace;
+      letter-spacing: .1em;
+      text-shadow: 0 1px 8px #000;
+      text-transform: uppercase;
+    }
+
+    .architecture {
+      display: grid;
+      grid-template-columns: 4fr 8fr;
+      gap: 60px;
+    }
+
+    .architecture h2 {
+      font-size: clamp(56px,7vw,110px);
+    }
+
+    .architecture aside {
+      position: sticky;
+      top: 120px;
+      height: max-content;
+    }
+
+    .architecture aside p {
+      padding-left: 18px;
+      border-left: 2px solid var(--red);
+      color: var(--muted);
+      font: 14px/1.6 monospace;
+    }
+
+    .info {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 16px;
+    }
+
+    .info div {
+      padding: 24px;
+      border-radius: 16px;
+      background: linear-gradient(
+        135deg,
+        rgba(111,140,255,.13),
+        rgba(17,21,29,.5)
+      );
+    }
+
+    .info div:nth-child(even) {
+      background: linear-gradient(
+        135deg,
+        rgba(235,89,105,.13),
+        rgba(17,21,29,.5)
+      );
+    }
+
+    .info b {
+      display: block;
+      margin-bottom: 14px;
+      color: var(--blue);
+      font: 11px monospace;
+      text-transform: uppercase;
+    }
+
+    .info p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 14px;
+    }
+
+    .contact-grid a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-width: 0;
+      padding: 24px;
+      overflow: hidden;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      background:
+        linear-gradient(rgba(17,21,29,.92),rgba(17,21,29,.92)) padding-box,
+        conic-gradient(
+          from var(--beam-angle),
+          transparent,
+          var(--blue) 40%,
+          var(--cyan) 50%,
+          transparent 62%
+        ) border-box;
+      box-shadow: 0 0 22px rgba(111,140,255,.2);
+      animation: border-spin 2.5s linear infinite;
+      transition: .3s;
+    }
+
+    .contact-grid a:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 30px rgba(111,140,255,.52);
+    }
+
+    .contact-grid strong {
+      display: block;
+      font: 900 25px/.95 Arial Black, Arial, sans-serif;
+      text-transform: uppercase;
+    }
+
+    .contact-grid small {
+      color: var(--muted);
+      font: 12px monospace;
+    }
+
+    .footer {
+      padding: 60px 0 25px;
+      background: #05060a;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 30px;
+    }
+
+    .footer h3 {
+      margin-bottom: 18px;
+      font-size: 24px;
+    }
+
+    .footer p {
+      color: var(--muted);
+      font: 12px/1.7 monospace;
+    }
+
+    @keyframes border-spin {
+      to {
+        --beam-angle: 360deg;
+      }
+    }
+
+    @keyframes slide {
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: .25;
+      }
+    }
+
+    @keyframes rays {
+      to {
+        transform: translateX(8%) rotate(8deg) scale(1.1);
+      }
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+        filter: blur(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+        filter: blur(0);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .wrap {
+        width: min(100% - 40px, 600px);
+      }
+
+      .header {
+        height: 82px;
+        padding: 18px 20px;
+      }
+
+      .logo {
+        font-size: 31px;
+      }
+
+      .mini-giallo {
+        width: 42px;
+        height: 42px;
+        font-size: 20px;
+      }
+
+      .hero {
+        min-height: 940px;
+        padding-top: 140px;
+      }
+
+      .hero-copy {
+        width: 100%;
+      }
+
+      .hero-brand {
+        font-size: clamp(62px,20vw,100px);
+      }
+
+      .hero h1 {
+        font-size: clamp(58px,18vw,92px);
+      }
+
+      .hero-image {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: 110%;
+        height: 310px;
+        margin: 65px -5% 0;
+      }
+
+      .hero-stats {
+        gap: 12px;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head h2 {
+        font-size: clamp(50px,15vw,78px);
+      }
+
+      .section-head p {
+        margin-top: 24px;
+      }
+
+      .works {
+        display: block;
+      }
+
+      .work,
+      .work:nth-child(n) {
+        margin: 0 0 28px;
+      }
+
+      .work img,
+      .work:nth-child(2) img,
+      .work:nth-child(3) img {
+        height: 300px;
+      }
+
+      .stack-layout {
+        display: block;
+      }
+
+      .stack-copy {
+        margin-bottom: 28px;
+      }
+
+      .stack-copy h2 {
+        font-size: 72px;
+      }
+
+      .card-stack {
+        height: 370px;
+        padding-top: 12px;
+      }
+
+      .stack-card {
+        flex-basis: 86%;
+        height: 370px;
+      }
+
+      .architecture {
+        display: block;
+      }
+
+      .architecture aside {
+        position: static;
+        margin-bottom: 45px;
+      }
+
+      .architecture h2 {
+        font-size: clamp(52px,16vw,86px);
+      }
+
+      .info,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid a {
+        padding: 19px 20px;
+      }
+
+      .contact-grid strong {
+        font-size: 21px;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <a href="#inicio">
+      <div class="logo">GIALLO</div>
+      <span class="est">EST. 2024 / ARG</span>
+    </a>
+
+    <a class="mini-giallo" href="#inicio" aria-label="Volver al inicio">G</a>
+  </header>
+
+  <main id="inicio">
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <div class="hero-brand">
+          GIALLO
+          <small>INDUMENTARIA</small>
+        </div>
+
+        <div class="eyebrow">
+          <span class="live"><i></i> Producción activa</span>
+          / Indumentaria deportiva
+        </div>
+
+        <h1>Hecho para representar.</h1>
+
+        <p>
+          Diseñamos y producimos ropa deportiva, sublimados y piezas
+          personalizadas. Principalmente por mayor: tu identidad, llevada a
+          una prenda.
+        </p>
+
+        <a class="under" href="#trabajos">Ver trabajos</a>
+
+        <div class="hero-stats">
+          <span><b>01</b> Diseño propio</span>
+          <span><b>02</b> Hecho a medida</span>
+          <span><b>03</b> Por mayor</span>
+        </div>
+      </div>
+
+      <figure class="hero-image">
+        <img
+          src="https://share.zapia.com/jt9izi2upx0glzh2ro90ai"
+          alt="Conjunto deportivo sublimado Giallo"
+        >
+      </figure>
+    </section>
+
+    <div class="marquee">
+      <span>
+        Diseño propio ✳ Producción mayorista ✳ Sublimados personalizados ✳
+        Equipos ✳ Clubes ✳ Emprendimientos ✳ Diseño propio ✳ Producción
+        mayorista ✳ Sublimados ✳
+      </span>
+    </div>
+
+    <section id="trabajos">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Trabajos<br>reales.</h2>
+          <p>
+            Una selección de piezas hechas para representar equipos, clubes,
+            grupos y proyectos.
+          </p>
+        </div>
+
+        <div class="works">
+          <figure class="work">
+            <span class="badge-tech">SUBLIMADO / 01</span>
+            <img
+              src="https://share.zapia.com/frvngxl9xfhkcb0bpiab3u"
+              alt="Musculosas deportivas Giallo"
+            >
+            <figcaption>
+              <span>Musculosas deportivas</span>
+              <span>01 / 04</span>
+            </figcaption>
+          </figure>
+
+          <figure class="work">
+            <span class="badge-tech">TEAM KIT</span>
+            <img
+              src="https://share.zapia.com/jt9izi2upx0glzh2ro90ai"
+              alt="Conjunto deportivo sublimado"
+            >
+            <figcaption>
+              <span>Conjunto personalizado</span>
+              <span>02 / 04</span>
+            </figcaption>
+          </figure>
+
+          <figure class="work">
+      <figure class="work">
+  <span class="badge-tech">SUBLIMADO / 01</span>
+  <img
+    src="https://share.zapia.com/frvngxl9xfhkcb0bpiab3u"
+    alt="Musculosas deportivas Giallo"
+  >
+  <figcaption>
+    <span>Musculosas deportivas</span>
+    <span>01 / 04</span>
+  </figcaption>
+</figure>
+
+<figure class="work">
+  <span class="badge-tech">TEAM KIT</span>
+  <img
+    src="https://share.zapia.com/jt9izi2upx0glzh2ro90ai"
+    alt="Conjunto deportivo sublimado"
+  >
+  <figcaption>
+    <span>Conjunto personalizado</span>
+    <span>02 / 04</span>
+  </figcaption>
+</figure>
+
+<figure class="work">
+  <span class="badge-tech">IDENTIDAD</span>
+  <img
+    src="https://share.zapia.com/z8tbipn43dcqh4gw0jg6qm"
+    alt="Identidad visual Giallo"
+  >
+  <figcaption>
+    <span>Marca Giallo</span>
+    <span>03 / 04</span>
+  </figcaption>
+</figure>
+
+<figure class="work">
+  <span class="badge-tech">CUSTOM</span>
+  <img
+    src="https://share.zapia.com/jm6krn756hoklxsgdi91nz"
+    alt="Banderón personalizado"
+  >
+  <figcaption>
+    <span>Banderón personalizado</span>
+    <span>04 / 04</span>
+  </figcaption>
+</figure>
+
+</div>
+</div>
+</section>
+
+<section class="stack-showcase">
+  <div class="wrap stack-layout">
+    <div class="stack-copy">
+      <span class="est">GIALLO / PROYECTOS REALES</span>
+
+      <h2>
+        Lo que<br>
+        hacemos<br>
+        se usa.
+      </h2>
+
+      <p>
+        Prendas y piezas personalizadas para equipos, clubes y comunidades.
+      </p>
+
+      <a class="under" href="#contacto">
+        Quiero algo así
+      </a>
+    </div>
+
+    <div class="card-stack" aria-label="Galería de trabajos">
+      <figure class="stack-card">
+        <img
+          src="https://share.zapia.com/27irh3pr3gov6tpci5fs7q"
+          alt="Banderón verde de Italiano"
+        >
+        <figcaption>Italiano / 01</figcaption>
+      </figure>
+
+      <figure class="stack-card">
+        <img
+          src="https://share.zapia.com/ylka8oigs61498yka70bni"
+          alt="Musculosa deportiva personalizada"
+        >
+        <figcaption>Musculosa / 02</figcaption>
+      </figure>
+
+      <figure class="stack-card">
+        <img
+          src="https://share.zapia.com/nj61p09oxrx5m5jh9ivbdv"
+          alt="Banderón personalizado de Sociedad Italiana"
+        >
+        <figcaption>Banderón / 03</figcaption>
+      </figure>
+
+      <figure class="stack-card">
+        <img
+          src="https://share.zapia.com/tv6j6lltcmctzmnta37qib"
+          alt="Banderón personalizado de Risas del Sud"
+        >
+        <figcaption>Banderón / 04</figcaption>
+      </figure>
+
+      <figure class="stack-card">
+        <img
+          src="https://share.zapia.com/qstc2ofwgp0r1kctc88dsn"
+          alt="Musculosa rosa Giallo"
+        >
+        <figcaption>Musculosa / 05</figcaption>
+      </figure>
+
+      <figure class="stack-card">
+        <img
+          src="https://share.zapia.com/5kktrsxjeo0bb31w4lykwr"
+          alt="Banderón de Olímpica Fitness Center"
+        >
+        <figcaption>Banderón / 06</figcaption>
+      </figure>
+
+      <figure class="stack-card">
+        <img
+          src="https://share.zapia.com/8ei5srwd5b3oxy55eeid3n"
+          alt="Musculosa violeta Giallo"
+        >
+        <figcaption>Musculosa / 07</figcaption>
+      </figure>
+
+      <figure class="stack-card">
+        <img
+          src="https://share.zapia.com/06djy14gi046tjs4pzsxps"
+          alt="Banderón personalizado del C.S.Y.D. Argentino"
+        >
+        <figcaption>Banderón / 08</figcaption>
+      </figure>
+
+      <figure class="stack-card">
+        <img
+          src="https://share.zapia.com/frvngxl9xfhkcb0bpiab3u"
+          alt="Musculosas deportivas Giallo"
+        >
+        <figcaption>Musculosas / 09</figcaption>
+      </figure>
+
+      <figure class="stack-card">
+        <img
+          src="https://share.zapia.com/jt9izi2upx0glzh2ro90ai"
+          alt="Conjunto sublimado Giallo"
+        >
+        <figcaption>Conjunto / 10</figcaption>
+      </figure>
+
+      <figure class="stack-card">
+        <img
+          src="https://share.zapia.com/z8tbipn43dcqh4gw0jg6qm"
+          alt="Identidad visual Giallo"
+        >
+        <figcaption>Identidad / 11</figcaption>
+      </figure>
+
+      <figure class="stack-card">
+        <img
+          src="https://share.zapia.com/jm6krn756hoklxsgdi91nz"
+          alt="Banderón personalizado Giallo"
+        >
+        <figcaption>Banderón / 12</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="proceso">
+  <div class="wrap architecture">
+    <aside>
+      <h2>
+        La<br>
+        arquitectura<br>
+        de una<br>
+        prenda.
+      </h2>
+
+      <p>
+        // Materiales seleccionados.<br>
+        // Diseño con identidad.<br>
+        // Producción por mayor.<br>
+        // Hecho para durar.
+      </p>
+    </aside>
+
+    <div class="info">
+      <div>
+        <b>01 / Tela</b>
+        <p>
+          Algodón peinado, Dri-Fit y telas pesadas según el uso de cada pieza.
+        </p>
+      </div>
+
+      <div>
+        <b>02 / Sublimación</b>
+        <p>
+          Colores, escudos, números y diseños personalizados para tu equipo.
+        </p>
+      </div>
+
+      <div>
+        <b>03 / Producción</b>
+        <p>
+          Trabajamos principalmente por mayor para clubes, equipos,
+          gimnasios y emprendimientos.
+        </p>
+      </div>
+
+      <div>
+        <b>04 / Detalle</b>
+        <p>
+          Cuidamos cada material y cada terminación para que la prenda tenga
+          identidad propia.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Hablemos.</h2>
+
+      <p>
+        Contanos qué necesitás y te respondemos con opciones, cantidades,
+        talles y tiempos.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+      <a
+        target="_blank"
+        rel="noopener"
+        href="https://wa.me/5491139421219?text=Hola%2C%20buenas%20%F0%9F%91%8B%20Quisiera%20hacerles%20una%20consulta%20por%20indumentaria%20deportiva%20y%20sublimados%20por%20mayor.%20Me%20interesan%20estos%20productos%3A%20%5Bescribir%20prendas%5D.%20La%20cantidad%20aproximada%20ser%C3%ADa%3A%20%5Bescribir%20cantidad%5D.%20Es%20para%20%5Bequipo%2C%20club%2C%20emprendimiento%20u%20otro%5D.%20Quisiera%20saber%20precios%2C%20talles%2C%20colores%2C%20tiempos%20de%20entrega%20y%20opciones%20de%20dise%C3%B1o%20personalizado.%20Mi%20nombre%20es%20%5Bescribir%20nombre%5D%20y%20soy%20de%20%5Bescribir%20localidad%5D.%20%C2%A1Muchas%20gracias!"
+      >
+        <span>
+          <strong>WhatsApp</strong>
+          <small>+54 9 11 3942-1219</small>
+        </span>
+
+        <span>↗</span>
+      </a>
+
+      <a
+        target="_blank"
+        rel="noopener"
+        href="https://www.instagram.com/gialloindumentaria/"
+      >
+        <span>
+          <strong>Instagram</strong>
+          <small>@gialloindumentaria</small>
+        </span>
+
+        <span>↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <h3>Giallo</h3>
+      <p>
+        Ropa deportiva.<br>
+        Sublimados.<br>
+        Producción mayorista.
+      </p>
+    </div>
+
+    <div>
+      <h3>Explorar</h3>
+      <p>
+        <a href="#trabajos">Trabajos</a><br>
+        <a href="#proceso">Proceso</a><br>
+        <a href="#contacto">Contacto</a>
+      </p>
+    </div>
+
+    <div>
+      <h3>Canales</h3>
+      <p>
+        Buenos Aires<br>
+        Argentina<br>
+        Est. 2024
+      </p>
+    </div>
+
+    <div>
+      <h3>Estado</h3>
+      <p>
+        <span class="live"><i></i> Pedidos abiertos</span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html> 
+
+creado por giamborino rossi Lorenzo 
+lorenzogiamborino@gmail.com
